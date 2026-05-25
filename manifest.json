@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "LeetCode Memory Pressure Watchdog",
-  "version": "0.1.0",
-  "description": "Reloads or discards LeetCode tabs when long sessions show sustained jank or memory-pressure symptoms.",
+  "name": "leetcode-memory-leak-fix",
+  "version": "1.0.0",
+  "description": "reloads or discards leetcode tabs when site becomes unresponsive and slow",
   "permissions": [
     "storage",
     "tabs",
@@ -33,12 +33,17 @@
     "browser_style": true
   },
   "browser_action": {
-    "default_title": "LeetCode watchdog"
+    "default_title": "leetcode-memory-leak-fix"
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
-      "id": "leetcode-memory-pressure-watchdog@example.local",
-      "strict_min_version": "109.0"
+      "id": "leetcode-memory-leak-fix@example.local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
     }
   }
 }
