@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "LeetCode Memory Pressure Watchdog",
+  "version": "0.1.0",
+  "description": "Reloads or discards LeetCode tabs when long sessions show sustained jank or memory-pressure symptoms.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "alarms",
+    "*://leetcode.com/*",
+    "*://*.leetcode.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://leetcode.com/*",
+        "*://*.leetcode.com/*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "browser_action": {
+    "default_title": "LeetCode watchdog"
+  },
+  "applications": {
+    "gecko": {
+      "id": "leetcode-memory-pressure-watchdog@example.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}

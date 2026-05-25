@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LeetCode Watchdog Options</title>
+    <style>
+      body {
+        max-width: 720px;
+        margin: 24px auto;
+        padding: 0 16px;
+        font: menu;
+        line-height: 1.45;
+      }
+
+      fieldset {
+        border: 1px solid #c8c8c8;
+        border-radius: 6px;
+        margin: 0 0 16px;
+        padding: 16px;
+      }
+
+      label {
+        display: grid;
+        grid-template-columns: 220px minmax(120px, 1fr);
+        gap: 12px;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      label.checkbox {
+        display: flex;
+        gap: 8px;
+      }
+
+      input[type="number"] {
+        max-width: 120px;
+      }
+
+      .status {
+        min-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LeetCode Watchdog</h1>
+
+    <fieldset>
+      <legend>Actions</legend>
+      <label class="checkbox">
+        <input id="enabled" type="checkbox">
+        Enable watchdog
+      </label>
+      <label class="checkbox">
+        <input id="idleReload" type="checkbox">
+        Reload inactive janky LeetCode tabs
+      </label>
+      <label class="checkbox">
+        <input id="discardHiddenTabs" type="checkbox">
+        Discard hidden LeetCode tabs
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Thresholds</legend>
+      <label>
+        Minimum session age, minutes
+        <input id="minSessionMinutes" type="number" min="1" step="1">
+      </label>
+      <label>
+        Idle before reload, minutes
+        <input id="idleMinutes" type="number" min="1" step="1">
+      </label>
+      <label>
+        Hidden before discard, minutes
+        <input id="hiddenDiscardMinutes" type="number" min="1" step="1">
+      </label>
+      <label>
+        Jank score threshold
+        <input id="jankScoreThreshold" type="number" min="1" step="1">
+      </label>
+      <label>
+        Reload cooldown, minutes
+        <input id="cooldownMinutes" type="number" min="1" step="1">
+      </label>
+      <label>
+        Max reloads per tab
+        <input id="maxReloadsPerTab" type="number" min="0" step="1">
+      </label>
+    </fieldset>
+
+    <p class="status" id="status"></p>
+
+    <script src="options.js"></script>
+  </body>
+</html>
